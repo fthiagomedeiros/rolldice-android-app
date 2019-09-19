@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="d"
+            name="viewModel"
             type="com.fthiago.rolldice.RollDiceViewModel" />
     </data>
 
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:onClick="rollDice"
+            android:onClick="@{() -> viewModel.rollDice()}"
             android:text="@string/roll_dice"
             app:layout_constraintEnd_toEndOf="@+id/dice_image"
             app:layout_constraintHorizontal_bias="0.504"

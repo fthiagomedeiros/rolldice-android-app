@@ -1,37 +1,39 @@
 package com.fthiago.rolldice
 
 import android.os.Bundle
-import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.fthiago.rolldice.databinding.ActivityRollDiceBinding
 import com.fthiago.rolldice.model.Dice
 
 class RollDiceActivity : AppCompatActivity() {
 
-    private lateinit var diceImage: ImageView
-
+    private lateinit var binding: ActivityRollDiceBinding
     private lateinit var viewModel: RollDiceViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_roll_dice)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_roll_dice)
 
-        diceImage = findViewById(R.id.dice_image)
-        viewModel = ViewModelProviders.of(this).get(RollDiceViewModel::class.java)
+        setViewModel()
+        attachBindingElements()
         observeRollDice()
+    }
+
+    private fun attachBindingElements() {
+        binding.viewModel = viewModel
+    }
+
+    private fun setViewModel() {
+        viewModel = ViewModelProviders.of(this).get(RollDiceViewModel::class.java)
     }
 
     private fun observeRollDice() {
         viewModel.getDiceValue().observe(this, Observer {
             drawDice(it)
         })
-    }
-
-    fun rollDice(view: View) {
-        viewModel.rollDice()
     }
 
     private fun drawDice(dice: Dice) {
@@ -45,6 +47,6 @@ class RollDiceActivity : AppCompatActivity() {
             else -> R.drawable.empty_dice
         }
 
-        diceImage.setImageResource(drawableResource)
+        binding.diceImage.setImageResource(drawableResource)
     }
 }
