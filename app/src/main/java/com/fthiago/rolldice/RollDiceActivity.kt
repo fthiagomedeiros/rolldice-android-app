@@ -1,33 +1,37 @@
 package com.fthiago.rolldice
 
+import android.database.DatabaseUtils
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.view.View
 import android.widget.ImageView
-import java.util.*
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProviders
 
 class RollDiceActivity : AppCompatActivity() {
 
-    lateinit var diceImage: ImageView
+    private lateinit var diceImage: ImageView
+
+    private lateinit var viewModel: RollDiceViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_roll_dice)
 
         diceImage = findViewById(R.id.dice_image)
-        setRollDiceButton()
+        viewModel = ViewModelProviders.of(this).get(RollDiceViewModel::class.java)
+        observeRollDice()
     }
 
-    private fun setRollDiceButton() {
-        val rollButton: Button = findViewById(R.id.roll_dice_button)
-        rollButton.setOnClickListener {
-            val diceValue = rollDice()
-            drawDice(diceValue)
-        }
+    private fun observeRollDice() {
+        viewModel.getDiceValue().observe(this, androidx.lifecycle.Observer {
+            Toast.makeText(this, "Funcionou $it", Toast.LENGTH_LONG).show()
+            drawDice(it)
+        })
     }
 
-    private fun rollDice(): Int {
-        return Random().nextInt(6) + 1
+    fun rollDice(view: View) {
+        viewModel.rollDice()
     }
 
     private fun drawDice(diceValue: Int) {
