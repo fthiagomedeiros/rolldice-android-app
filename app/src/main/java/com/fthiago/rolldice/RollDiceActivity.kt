@@ -8,6 +8,14 @@ import androidx.lifecycle.ViewModelProviders
 import com.fthiago.rolldice.databinding.ActivityRollDiceBinding
 import com.fthiago.rolldice.databinding.ActivityRollDiceBindingImpl
 import com.fthiago.rolldice.model.Dice
+import androidx.databinding.BindingAdapter
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.widget.ImageView
+import org.antlr.runtime.misc.IntArray
+
+
 
 class RollDiceActivity : AppCompatActivity() {
 
@@ -20,7 +28,7 @@ class RollDiceActivity : AppCompatActivity() {
 
         setViewModel()
         attachBindingElements()
-        observeRollDice()
+        observeImageToDraw()
     }
 
     private fun attachBindingElements() {
@@ -31,23 +39,10 @@ class RollDiceActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(RollDiceViewModel::class.java)
     }
 
-    private fun observeRollDice() {
-        viewModel.getDiceValue().observe(this, Observer {
-            drawDice(it)
+    private fun observeImageToDraw() {
+        viewModel.getImageToDraw().observe(this, Observer {
+            binding.diceImage.setImageResource(it)
         })
     }
 
-    private fun drawDice(dice: Dice) {
-        val drawableResource = when(dice.diceValue) {
-            1 -> R.drawable.dice_1
-            2 -> R.drawable.dice_2
-            3 -> R.drawable.dice_3
-            4 -> R.drawable.dice_4
-            5 -> R.drawable.dice_5
-            6 -> R.drawable.dice_6
-            else -> R.drawable.empty_dice
-        }
-
-        binding.diceImage.setImageResource(drawableResource)
-    }
 }
