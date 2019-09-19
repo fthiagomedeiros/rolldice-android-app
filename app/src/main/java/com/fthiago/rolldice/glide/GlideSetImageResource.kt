@@ -15,7 +15,6 @@ object GlideSetImageResource {
         Glide.with(context)
             .load(imageUrl)
             .into(view)
-
     }
 
 }

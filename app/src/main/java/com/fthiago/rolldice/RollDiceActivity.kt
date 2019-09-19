@@ -25,6 +25,7 @@ class RollDiceActivity : AppCompatActivity() {
     private fun bindViewModel() {
         binding.viewModel = viewModel
         binding.testUrl = "https://imgix.ranker.com/user_node_img/50023/1000440445/original/happy-poodle-photo-u2?w=650&q=50&fm=pjpg&fit=crop&crop=faces"
+        binding.buttonText = "Roll Dice"
     }
 
     private fun setViewModel() {
