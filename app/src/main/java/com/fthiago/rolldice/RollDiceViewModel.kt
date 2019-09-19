@@ -1,5 +1,6 @@
 package com.fthiago.rolldice
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,6 +14,7 @@ class RollDiceViewModel : ViewModel() {
     fun rollDice() {
         val diceValue = Random().nextInt(6) + 1
         imageRes.value = diceToDraw(Dice(diceValue))
+        Log.e("diceValue","" + diceValue)
     }
 
     fun getImageToDraw(): LiveData<Int> {

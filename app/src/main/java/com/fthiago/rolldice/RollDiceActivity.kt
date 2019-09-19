@@ -1,21 +1,12 @@
 package com.fthiago.rolldice
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.fthiago.rolldice.databinding.ActivityRollDiceBinding
-import com.fthiago.rolldice.databinding.ActivityRollDiceBindingImpl
-import com.fthiago.rolldice.model.Dice
-import androidx.databinding.BindingAdapter
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.widget.ImageView
-import org.antlr.runtime.misc.IntArray
-
-
 
 class RollDiceActivity : AppCompatActivity() {
 
@@ -27,11 +18,11 @@ class RollDiceActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_roll_dice)
 
         setViewModel()
-        attachBindingElements()
+        bindViewModel()
         observeImageToDraw()
     }
 
-    private fun attachBindingElements() {
+    private fun bindViewModel() {
         binding.viewModel = viewModel
     }
 
