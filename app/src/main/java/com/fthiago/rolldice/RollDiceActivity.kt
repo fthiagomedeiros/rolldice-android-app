@@ -1,7 +1,6 @@
 package com.fthiago.rolldice
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -35,6 +34,7 @@ class RollDiceActivity : AppCompatActivity() {
     private fun observeImageToDraw() {
         viewModel.getImageToDraw().observe(this, Observer {
             binding.diceImage.setImageResource(it)
+            binding.buttonText = "Roll Dice $it"
         })
     }
 
