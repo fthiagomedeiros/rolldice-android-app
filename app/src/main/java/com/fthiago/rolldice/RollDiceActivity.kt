@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.fthiago.rolldice.databinding.ActivityRollDiceBinding
+import com.fthiago.rolldice.databinding.ActivityRollDiceBindingImpl
 import com.fthiago.rolldice.model.Dice
 
 class RollDiceActivity : AppCompatActivity() {
