@@ -1,20 +1,34 @@
-package com.fthiago.rolldice
+package com.fthiago.rolldice.activities
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.fthiago.rolldice.R
+import com.fthiago.rolldice.application.RollDiceApplication
+import com.fthiago.rolldice.dagger.DaggerFundamentalsComponent
 import com.fthiago.rolldice.databinding.ActivityRollDiceBinding
+import com.fthiago.rolldice.model.Info
+import javax.inject.Inject
 
 class RollDiceActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRollDiceBinding
     private lateinit var viewModel: RollDiceViewModel
 
+    @Inject
+    lateinit var info: Info
+
+    @Inject
+    lateinit var app: Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_roll_dice)
+
+        (application as RollDiceApplication).getComponentFromDagger().inject(this)
 
         setViewModel()
         bindViewModel()
@@ -34,7 +48,7 @@ class RollDiceActivity : AppCompatActivity() {
     private fun observeImageToDraw() {
         viewModel.getImageToDraw().observe(this, Observer {
             binding.diceImage.setImageResource(it)
-            binding.buttonText = "Roll Dice $it"
+            binding.buttonText = "Roll Dice $it $app"
         })
     }
 

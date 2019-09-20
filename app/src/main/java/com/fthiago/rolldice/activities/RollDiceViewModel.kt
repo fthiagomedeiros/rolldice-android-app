@@ -1,9 +1,10 @@
-package com.fthiago.rolldice
+package com.fthiago.rolldice.activities
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.fthiago.rolldice.R
 import com.fthiago.rolldice.model.Dice
 import java.util.*
 
