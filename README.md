@@ -1,4 +1,4 @@
-Roll Dice project
+# Roll Dice project
 
 **This project is part of my learning through Udacity Android course**
 
