@@ -11,3 +11,5 @@ Roll Dice project
 **Running**
 
 To run this project, you just have to clone the project repository and import it on Android Studio IDE
+
+**More:** _https://developer.android.com/jetpack/docs/guide#recommended-app-arch_
