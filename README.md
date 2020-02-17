@@ -1,11 +1,8 @@
-# Roll Dice project
+Roll Dice project
 
-<h1>
-Android MVVM and Databinding
-</h1>
+**This project is part of my learning through Udacity Android course**
+**Course link:** _https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012_
 
-<h3>
-- This project uses two important concepts related to Android: MVVM and Databinding
-- The creation of this project was suggested during a Udacity Android Course and the assets were provided by them
-- I just evolved the original project applying MVVM and Databinding, techniques that supports better legibility in our code
-</h3>
+- I have used some important Android concepts as MVVM architecture and Databinding
+- The creation of this project was suggested during a Udacity Android Course and the assets were provided by them.
+- Using MVVM and Databinding improved the code quality and maintanability
