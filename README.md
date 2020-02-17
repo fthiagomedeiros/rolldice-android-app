@@ -6,3 +6,7 @@ Roll Dice project
 - I have used some important Android concepts as MVVM architecture and Databinding
 - The creation of this project was suggested during a Udacity Android Course and the assets were provided by them.
 - Using MVVM and Databinding improved the code quality and maintanability
+
+**Running**
+
+To run this project, you just have to clone the project and import it on Android Studio IDE
