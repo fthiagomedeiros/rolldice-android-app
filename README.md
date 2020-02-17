@@ -9,4 +9,4 @@ Roll Dice project
 
 **Running**
 
-To run this project, you just have to clone the project and import it on Android Studio IDE
+To run this project, you just have to clone the project repository and import it on Android Studio IDE
