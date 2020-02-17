@@ -1,6 +1,7 @@
 Roll Dice project
 
 **This project is part of my learning through Udacity Android course**
+
 **Course link:** _https://www.udacity.com/course/developing-android-apps-with-kotlin--ud9012_
 
 - I have used some important Android concepts as MVVM architecture and Databinding
